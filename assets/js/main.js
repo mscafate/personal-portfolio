@@ -73,7 +73,11 @@ function getUser() {
       (data) => {
         document.getElementById("avatar").src = data.avatar_url;
         document.getElementById("bio").innerText = data.bio;
-        document.getElementById("hireable").innerText += data.hireable;
+        if (data.hireable) {
+          document.getElementById("hireable").innerText += "Hireable";
+        } else {
+          document.getElementById("hireable").innerText += data.hireable;
+        }
       }
       //console.log(data.avatar_url)
     );
